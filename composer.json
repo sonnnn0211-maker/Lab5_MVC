@@ -1,0 +1,12 @@
+{
+    "name": "dell/lab5-mvc",
+    "description": "Lab 5 MVC Project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "fakerphp/faker": "^1.24"
+    }
+}
