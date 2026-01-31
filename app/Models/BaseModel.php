@@ -4,24 +4,20 @@ use PDO;
 use PDOException;
 
 class BaseModel {
-    protected $connect;
+    protected $connect; // Đảm bảo dùng protected để lớp Student kế thừa được
 
     public function __construct() {
         try {
-            // Thay đổi 'ten_database' bằng tên DB Lab 2 của bạn
+            // Thay đổi các thông số cho đúng với Database của bạn
             $host = "localhost";
-            $dbname = "ten_database_lab2"; 
-            $username = "root";
-            $password = "";
-
-            $this->connect = new PDO(
-                "mysql:host=$host;dbname=$dbname;charset=utf8",
-                $username,
-                $password
-            );
+            $dbname = "buoi2_php"; 
+            $user = "root";
+            $pass = "";
+            
+            $this->connect = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
             $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            echo "Lỗi kết nối: " . $e->getMessage();
+            die("Lỗi kết nối: " . $e->getMessage());
         }
     }
 }

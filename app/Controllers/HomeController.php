@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\Student;
-use Faker\Factory; // Đừng quên dòng này để dùng được Faker
+use Faker\Factory; 
 
 class HomeController {
     public function index() {

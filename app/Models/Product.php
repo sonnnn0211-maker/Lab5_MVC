@@ -1,11 +1,12 @@
 <?php
 namespace App\Models;
 
+use PDO; 
+
 class Product extends BaseModel {
-    public function getAllProducts() {
-        // Giả sử bảng của bạn tên là 'products'
-        $sql = "SELECT * FROM products";
-        $stmt = $this->connect->prepare($sql);
+    public function all() {
+        $sql = "SELECT * FROM students ORDER BY id DESC";
+        $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

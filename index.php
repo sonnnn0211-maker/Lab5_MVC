@@ -1,16 +1,18 @@
 <?php
 require_once 'vendor/autoload.php';
 
-use App\Controllers\HomeController;
-use App\Controllers\ProductController;
+use App\Controllers\StudentController;
 
-$page = $_GET['page'] ?? 'home';
+$ctr = new StudentController();
+$page = $_GET['page'] ?? 'student-list';
 
-if ($page === 'home') {
-    (new HomeController())->index();
-} elseif ($page === 'products') {
-    // Nếu URL là index.php?page=products
-    (new ProductController())->index();
-} else {
-    echo "<h1>404 - Not Found</h1>";
+switch ($page) {
+    case 'student-list': $ctr->index(); break;
+    case 'student-detail': $ctr->show(); break;
+    case 'student-add': $ctr->create(); break;
+    case 'student-store': $ctr->store(); break;
+    case 'student-edit': $ctr->edit(); break;
+    case 'student-update': $ctr->update(); break;
+    case 'student-delete': $ctr->destroy(); break;
+    default: echo "Trang không tồn tại!"; break;
 }
